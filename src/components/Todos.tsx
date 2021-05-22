@@ -8,12 +8,15 @@ const Todos: React.FC = () => {
                 <Todoitem isDone={false} title="Do react todo app" />
                 <Todoitem isDone title="Night prayer" />
 				<Todoitem isDone={false} title="Read a book" />
-				<div className="flex px-4 py-4 text-sm dark:text-dark-theme-very-dark-grayish-blue rounded-b">
+				<div className="flex px-4 py-4 text-sm
+				font-bold text-light-theme-dark-grayish-blue dark:text-dark-theme-very-dark-grayish-blue rounded-b">
 					<div className="flex-1">5 items left</div>
 					<div className="md:block font-bold hidden w-full mx-auto flex-1 text-center">All Active Completed</div>
 					<div className="ml-auto flex-1 text-right">Clear Completed</div>
 				</div>
-            </div>
+				
+			</div>
+			
         </div>
     );
 };

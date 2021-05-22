@@ -17,7 +17,7 @@ const Todoitem: React.FC<Props> = (props: Props) => {
                     onChange={() => setIsDone(!isDone)}
                 />
                 <span
-                    className={`ml-3  ${
+                    className={`ml-3 font-bold  ${
                         isDone
                             ? "line-through text-light-theme-light-grayish-blue dark:text-dark-theme-very-dark-grayish-blue-2"
                             : "text-light-theme-dark-grayish-blue"
