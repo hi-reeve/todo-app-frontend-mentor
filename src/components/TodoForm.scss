@@ -1,0 +1,34 @@
+.form {
+    @apply mx-auto w-full px-8 mt-8 flex items-center;
+}
+.input--wrapper {
+    @apply bg-white rounded w-full px-4 py-1 flex items-center dark:bg-dark-theme-very-dark-desaturated-blue shadow;
+}
+.input--checkbox {
+    @apply h-5 w-5  rounded-full border border-light-theme-light-grayish-blue dark:border-dark-theme-very-dark-grayish-blue focus:outline-none focus:ring-0 focus:border-none bg-transparent;
+    &:checked {
+        background-image: url("@/assets/images/icon-check.svg"),
+            var(--check-background);
+        background-size: 10px, 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        @apply ring-0 border-none focus:outline-none focus:ring-0 focus:border-none;
+    }
+}
+.input--text {
+    @apply border-none focus:ring-0 focus:outline-none ml-1 w-full text-light-theme-dark-grayish-blue bg-transparent dark:text-dark-theme-light-grayish-blue;
+}
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    @apply text-light-theme-light-grayish-blue opacity-100;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    @apply text-light-theme-light-grayish-blue;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    @apply text-light-theme-light-grayish-blue;
+}

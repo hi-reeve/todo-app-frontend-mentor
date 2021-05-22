@@ -1,0 +1,12 @@
+
+.todo{
+	&--header{
+		@apply flex px-8 ;
+	}
+	&--title{
+		@apply font-bold text-white tracking-[15px] text-3xl uppercase;
+	}
+}
+.toggle-dark{
+	@apply ml-auto focus:outline-none;
+}

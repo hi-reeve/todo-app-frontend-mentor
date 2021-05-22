@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --bright-blue: hsl(220, 98%, 61%);
+        --check-background: linear-gradient(
+            hsl(192, 100%, 67%),
+            hsl(280, 87%, 65%)
+        );
+
+        /* light theme color palette */
+        --very-light-gray: hsl(0, 0%, 98%);
+        --very-light-grayish-blue: hsl(236, 33%, 92%);
+        --light-grayish-blue: hsl(233, 11%, 84%);
+        --dark-grayish-blue: hsl(236, 9%, 61%);
+        --very-dark-grayish-blue: hsl(235, 19%, 35%);
+        --very-dark-grayish-blue-2: hsl(237, 14%, 26%);
+
+        /* dark theme color palette  */
+        --very-dark-blue: hsl(235, 21%, 11%);
+        --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+        --light-grayish-blue: hsl(234, 39%, 85%);
+        --light-grayish-blue-2: hsl(236, 33%, 92%);
+        --dark-grayish-blue: hsl(234, 11%, 52%);
+        --very-dark-grayish-blue: hsl(233, 14%, 35%);
+        --very-dark-grayish-blue-2: hsl(237, 14%, 26%);
+    }
+}
+@layer components {
+    body {
+        @apply font-josefin;
+    }
+}
