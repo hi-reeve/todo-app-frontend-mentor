@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useState } from "react";
 import TodoItem from "@/components/TodoItem";
 import "@/components/Todos.scss";
 import { Filter, Todo } from "@/types/Todo";
@@ -34,12 +34,8 @@ const Todos: React.FC<Props> = (props: Props) => {
     ));
     const TodoList = props.todos.filter(FILTER_MAP[filter]).map(todo => {
         return (
-            <CSSTransition
-                key={todo.id}
-                timeout={300}
-                classNames="todo"
-            >
-                <div >
+            <CSSTransition key={todo.id} timeout={300} classNames="todo">
+                <div>
                     <TodoItem
                         todo={todo}
                         onDeleteTodo={props.onDeleteTodo}
