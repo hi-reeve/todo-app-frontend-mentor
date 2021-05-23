@@ -1,0 +1,21 @@
+.todo {
+    &--item {
+        @apply flex px-4 py-4 items-center border-b border-light-theme-light-grayish-blue dark:border-dark-theme-very-dark-grayish-blue-2 ;
+    }
+    &--label {
+        @apply w-full cursor-pointer;
+    }
+    &--text {
+        @apply ml-3 font-bold dark:hover:text-dark-theme-light-grayish-blue
+		hover:text-light-theme-very-dark-grayish-blue text-light-theme-dark-grayish-blue dark:text-dark-theme-dark-grayish-blue transition-all duration-300 ease-in-out;
+        &-completed {
+            @apply line-through text-light-theme-light-grayish-blue dark:text-dark-theme-very-dark-grayish-blue-2 hover:text-light-theme-light-grayish-blue dark:hover:text-dark-theme-very-dark-grayish-blue-2;
+        }
+    }
+    &--delete {
+        @apply font-bold ml-auto text-light-theme-dark-grayish-blue focus:outline-none 
+		hover:text-dark-theme-very-dark-grayish-blue-2 transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100;
+    }
+	
+}
+

@@ -1,23 +1,82 @@
-import React from "react";
-import Todoitem from "./Todoitem";
-const Todos: React.FC = () => {
+import React, { Fragment, useRef, useState } from "react";
+import TodoItem from "@/components/TodoItem";
+import "@/components/Todos.scss";
+import { Filter, Todo } from "@/types/Todo";
+import FilterButton from "./FilterButton";
+
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
+interface Props {
+    todos: Todo[];
+    onDeleteTodo: (id: string) => void;
+    onToggleCompleted: (id: string) => void;
+    onClearCompleted: () => void;
+}
+const Todos: React.FC<Props> = (props: Props) => {
+    const uncompletedTodo = props.todos.filter(todo => todo.isDone === false);
+    const [filter, setFilter] = useState<Filter>("All");
+    const handleFilterClick = (filter: Filter) => {
+        setFilter(filter);
+    };
+    const FILTER_MAP = {
+        All: () => true,
+        Active: (todo: Todo) => !todo.isDone,
+        Completed: (todo: Todo) => todo.isDone,
+    };
+    const FILTER_NAMES = Object.keys(FILTER_MAP) as Filter[];
+    const filterList = FILTER_NAMES.map((currentFilter: Filter) => (
+        <FilterButton
+            name={currentFilter}
+            key={currentFilter}
+            isActive={currentFilter === filter}
+            handleFilterClick={handleFilterClick}
+        />
+    ));
+    const TodoList = props.todos.filter(FILTER_MAP[filter]).map(todo => {
+        return (
+            <CSSTransition
+                key={todo.id}
+                timeout={300}
+                classNames="todo"
+            >
+                <div >
+                    <TodoItem
+                        todo={todo}
+                        onDeleteTodo={props.onDeleteTodo}
+                        onToggleCompleted={props.onToggleCompleted}
+                    />
+                </div>
+            </CSSTransition>
+        );
+    });
     return (
-        <div className="w-full px-8 mt-8 ">
-            <div className="bg-white dark:bg-dark-theme-very-dark-desaturated-blue rounded shadow">
-                <Todoitem isDone title="Jog around the park" />
-                <Todoitem isDone={false} title="Do react todo app" />
-                <Todoitem isDone title="Night prayer" />
-				<Todoitem isDone={false} title="Read a book" />
-				<div className="flex px-4 py-4 text-sm
-				font-bold text-light-theme-dark-grayish-blue dark:text-dark-theme-very-dark-grayish-blue rounded-b">
-					<div className="flex-1">5 items left</div>
-					<div className="md:block font-bold hidden w-full mx-auto flex-1 text-center">All Active Completed</div>
-					<div className="ml-auto flex-1 text-right">Clear Completed</div>
-				</div>
-				
-			</div>
-			
-        </div>
+        <Fragment>
+            <div className="todos ">
+                <div className="todos--wrapper">
+                    <TransitionGroup>{TodoList}</TransitionGroup>
+
+                    <div className="todos--actions">
+                        <div className="todos--left">
+                            {uncompletedTodo.length > 0
+                                ? `${uncompletedTodo.length} items left`
+                                : "No todo left"}
+                        </div>
+                        <div className="todos--filter-desktop">
+                            {filterList}
+                        </div>
+                        <div
+                            onClick={props.onClearCompleted}
+                            className="todos--clear"
+                        >
+                            Clear Completed
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="todos--filter-wrapper">
+                <div className="todos--filter-mobile">{filterList}</div>
+            </div>
+        </Fragment>
     );
 };
 

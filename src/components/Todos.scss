@@ -1,0 +1,50 @@
+.todos {
+    @apply w-full px-8 mt-8;
+    &--wrapper {
+        @apply bg-white dark:bg-dark-theme-very-dark-desaturated-blue rounded shadow;
+    }
+    &--actions {
+        @apply flex px-4 py-4 text-sm items-center
+		font-bold text-light-theme-dark-grayish-blue dark:text-dark-theme-very-dark-grayish-blue rounded-b;
+    }
+    &--left {
+        @apply flex-1;
+    }
+    &--filter {
+        &-action {
+            @apply cursor-pointer mx-4 transition-all duration-300 ease-in-out dark:hover:text-dark-theme-light-grayish-blue
+			hover:text-light-theme-very-dark-grayish-blue;
+            &.active {
+                @apply text-bright-blue;
+            }
+        }
+        &-desktop {
+            @apply md:flex items-center justify-center font-bold hidden w-full mx-auto flex-1 text-center;
+        }
+        &-wrapper {
+            @apply md:hidden font-bold w-full px-8;
+        }
+        &-mobile {
+            @apply flex  mx-auto flex-1 text-center px-8 py-2  mt-5 items-center justify-evenly text-light-theme-dark-grayish-blue dark:text-dark-theme-dark-grayish-blue bg-white dark:bg-dark-theme-very-dark-desaturated-blue;
+        }
+    }
+    &--clear {
+        @apply ml-auto flex-1 text-right cursor-pointer  transition-all duration-300 ease-in-out 
+		hover:text-bright-blue dark:hover:text-dark-theme-light-grayish-blue;
+    }
+}
+
+.todo {
+    &-enter {
+        @apply opacity-0 transform  -translate-x-10;
+        &-active {
+            @apply opacity-100 transform translate-x-0 transition-all duration-300 ease-in-out;
+        }
+    }
+    &-exit {
+        @apply opacity-100 transform translate-x-0;
+        &-active {
+            @apply opacity-0 transform -translate-x-10 transition-all duration-300 ease-in-out;
+        }
+    }
+}

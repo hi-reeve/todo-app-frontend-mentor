@@ -1,3 +1,12 @@
+.container {
+    @apply mx-auto lg:pt-24  pt-16 lg:w-1/2 md:w-2/3;
+}
 .app {
     @apply w-full h-screen bg-light-theme-very-light-gray dark:bg-dark-theme-very-dark-blue transition-all duration-300 ease-in-out bg-no-repeat md:bg-light-desktop bg-light-mobile md:dark:bg-dark-desktop dark:bg-dark-mobile bg-contain;
+}
+.attribution {
+    @apply text-light-theme-very-dark-grayish-blue dark:text-dark-theme-light-grayish-blue text-center mt-5;
+    a {
+        @apply hover:underline hover:text-bright-blue;
+    }
 }

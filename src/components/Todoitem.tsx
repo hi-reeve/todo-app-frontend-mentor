@@ -1,32 +1,33 @@
-import React, { useState } from "react";
-
+import React from "react";
+import "@/components/TodoItem.scss";
+import { Todo } from "@/types/Todo";
 interface Props {
-    title: string;
-    isDone: boolean;
-    // onClose: () => void;
+    todo: Todo;
+    onDeleteTodo: (id: string) => void;
+    onToggleCompleted: (id: string) => void;
 }
 const Todoitem: React.FC<Props> = (props: Props) => {
-    const [isDone, setIsDone] = useState(props.isDone);
     return (
-        <div className="todo--item flex px-4 py-4 items-center border-b border-light-theme-light-grayish-blue dark:border-dark-theme-very-dark-grayish-blue-2">
-            <label className="w-full cursor-pointer">
+        <div className="todo--item group">
+            <label className="todo--label">
                 <input
                     type="checkbox"
                     className="input--checkbox"
-                    checked={isDone}
-                    onChange={() => setIsDone(!isDone)}
+                    checked={props.todo.isDone}
+                    onChange={() => props.onToggleCompleted(props.todo.id)}
                 />
                 <span
-                    className={`ml-3 font-bold  ${
-                        isDone
-                            ? "line-through text-light-theme-light-grayish-blue dark:text-dark-theme-very-dark-grayish-blue-2"
-                            : "text-light-theme-dark-grayish-blue"
+                    className={`todo--text  ${
+                        props.todo.isDone ? "todo--text-completed" : ""
                     }`}
                 >
-                    {props.title}
+                    {props.todo.title}
                 </span>
             </label>
-            <button className="font-bold ml-auto text-light-theme-dark-grayish-blue">
+            <button
+                className="todo--delete"
+                onClick={() => props.onDeleteTodo(props.todo.id)}
+            >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"

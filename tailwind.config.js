@@ -18,6 +18,9 @@ module.exports = {
                     "url('./src/assets/images/bg-mobile-light.jpg')",
             },
             colors: {
+                "bright-blue": {
+                    DEFAULT: "var(--bright-blue)",
+                },
                 "light-theme": {
                     "very-light-gray": "var(--very-light-gray)",
                     "very-light-grayish-blue": "var(--very-light-grayish-blue)",
@@ -43,7 +46,5 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [ 
-		require('@tailwindcss/forms')
-	],
+    plugins: [require("@tailwindcss/forms")],
 };
