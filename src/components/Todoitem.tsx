@@ -6,7 +6,7 @@ interface Props {
     onDeleteTodo: (id: string) => void;
     onToggleCompleted: (id: string) => void;
 }
-const Todoitem: React.FC<Props> = (props: Props) => {
+const TodoItem: React.FC<Props> = (props: Props) => {
     return (
         <div className="todo--item group">
             <label className="todo--label">
@@ -41,4 +41,4 @@ const Todoitem: React.FC<Props> = (props: Props) => {
     );
 };
 
-export default Todoitem;
+export default TodoItem;
